@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavesh R. Sahu | Senior QA Engineer</title>
+  <meta name="description" content="Senior QA Engineer with 8.5+ years in Manual, Automation & AI-Assisted Testing. Expert in API, Web, Mobile (Android & iOS) testing and AI-driven QA tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0b1120; --bg-secondary: #111827; --bg-card: #1a2332; --bg-card-hover: #1f2a3c;
+      --border: #2a3649; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --text-muted: #64748b;
+      --accent: #22d3ee; --accent-dark: #06b6d4; --accent-glow: rgba(34, 211, 238, 0.15);
+      --success: #34d399; --warning: #fbbf24; --danger: #f87171; --purple: #a78bfa;
+      --radius: 12px; --radius-sm: 8px; --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.65rem 2rem; background: rgba(11,17,32,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: var(--transition); }
+    .navbar.scrolled { border-bottom-color: var(--border); }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo-img { height: 48px; width: auto; border-radius: 10px; object-fit: contain; transition: var(--transition); }
+    .logo-img:hover { transform: scale(1.04); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-location { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 50px; background: rgba(26,35,50,0.5); }
+    .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-cta { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #0b1120; padding: 0.45rem 1.1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: var(--transition); }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(34,211,238,0.35); }
+    .btn-download { background: transparent; border: 1px solid var(--border); color: var(--text-primary); padding: 0.45rem 1.1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.4rem; }
+    .btn-download:hover { border-color: var(--accent); color: var(--accent); }
+    .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.4rem; cursor: pointer; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: flex-start; position: relative; padding: 6.5rem 2rem 3rem; overflow: hidden; }
+    .hero-bg { position: absolute; top: 0; right: 0; width: 48%; height: 100%; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(25%) brightness(0.6) contrast(1.05); mix-blend-mode: luminosity; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-primary) 0%, rgba(11,17,32,0.55) 35%, rgba(11,17,32,0.15) 100%); }
+    .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, var(--bg-primary) 100%); z-index: 1; }
+    .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: start; }
+    .hero-left { padding-top: 0.5rem; max-width: 580px; min-height: calc(95vh - 6.5rem); display: flex; flex-direction: column; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-glow); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; }
+    .hero-badge .dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero h1 { font-size: clamp(2.2rem, 4.2vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 0.55rem; }
+    .hero h1 .highlight { background: linear-gradient(135deg, var(--accent), #67e8f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.85rem; font-weight: 500; }
+    .hero-desc { color: var(--text-muted); font-size: 0.95rem; max-width: 540px; margin-bottom: 1rem; line-height: 1.62; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 0.7rem; }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.35rem; border-radius: 50px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #0b1120; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(34,211,238,0.35); }
+    .btn-outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-call { background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.35); color: var(--success); }
+    .btn-call:hover { background: rgba(52,211,153,0.2); border-color: var(--success); }
+
+    /* Combined experience + company panel on the right */
+    .hero-proof-panel { position: absolute; right: 3%; bottom: 5%; z-index: 3; width: 44%; display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; background: rgba(11,17,32,0.72); backdrop-filter: blur(8px); border: 1px solid rgba(42,54,73,0.7); border-radius: 12px; }
+    .hero-stats { display: flex; justify-content: space-around; gap: 1rem; margin: 0; padding: 0 0 0.75rem; border-bottom: 1px solid rgba(148,163,184,0.22); }
+    .stat-item { text-align: left; }
+    .stat-number { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* Expertise cards in the left column */
+    .hero-expertise { display: flex; flex-direction: column; gap: 0.9rem; margin-top: auto; padding-top: 1.25rem; }
+    .visual-card { background: rgba(26,35,50,0.88); border: 1px solid var(--border); border-radius: 14px; padding: 0.88rem 1rem; backdrop-filter: blur(10px); }
+    .visual-card h4 { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.5rem; font-weight: 600; }
+    .testing-tags { display: flex; flex-wrap: wrap; gap: 0.32rem; }
+    .testing-tags span { background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2); color: var(--text-secondary); padding: 0.26rem 0.6rem; border-radius: 50px; font-size: 0.7rem; }
+
+    /* Empty right column keeps photo visible */
+    .hero-right-spacer { min-height: 1px; }
+
+    /* Company logos overlay on photo (lower area) */
+    .company-logos-overlay { width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.7rem 0.9rem; padding: 0.35rem 0.65rem; margin: 0 auto; text-align: center; }
+    .company-logos-overlay .label { flex: 0 0 100%; font-size: 0.7rem; color: var(--text-muted); margin: 0 0 0.1rem; text-align: center; white-space: nowrap; }
+    .company-logo-item { display: block; flex: 0 1 76px; width: 76px; height: 30px; max-width: 76px; object-fit: contain; border-radius: 6px; filter: brightness(0.95) grayscale(15%); opacity: 0.9; transition: var(--transition); background: rgba(255,255,255,0.06); padding: 3px 6px; }
+    .company-logo-item.circular { flex: 0 0 30px; border-radius: 50%; height: 30px; width: 30px; max-width: 30px; object-fit: cover; padding: 0; }
+    .company-logo-item:hover { opacity: 1; filter: none; transform: scale(1.06); }
+
+    section { padding: 4.5rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-badge { display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.85rem; }
+    .section-title { font-size: clamp(1.7rem, 3.5vw, 2.3rem); font-weight: 700; margin-bottom: 0.6rem; }
+    .section-desc { color: var(--text-secondary); max-width: 580px; margin: 0 auto; font-size: 1rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 1.1rem; font-size: 1rem; }
+    .highlight-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.3rem; display: flex; gap: 0.9rem; align-items: flex-start; transition: var(--transition); margin-bottom: 0.85rem; }
+    .highlight-card:hover { border-color: var(--accent); transform: translateX(5px); }
+    .highlight-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+    .highlight-card h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+    /* SKILLS – equal height cards */
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.15rem; align-items: stretch; }
+    .skill-category { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.35rem; transition: var(--transition); display: flex; flex-direction: column; min-height: 320px; }
+    .skill-category:hover { border-color: rgba(34,211,238,0.35); transform: translateY(-3px); }
+    .skill-category h3 { font-size: 0.95rem; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.45rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; flex-grow: 1; align-content: flex-start; }
+    .skill-tag { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); padding: 0.3rem 0.7rem; border-radius: 50px; font-size: 0.74rem; font-weight: 500; cursor: pointer; position: relative; transition: var(--transition); }
+    .skill-tag:hover, .skill-tag.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+    .skill-tooltip { display: none; position: absolute; z-index: 50; background: var(--bg-card); border: 1px solid var(--accent); border-radius: 10px; padding: 0.85rem 1.1rem; max-width: 260px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); }
+    .skill-tooltip::before { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 5px solid var(--accent); }
+    .skill-tag.active .skill-tooltip { display: block; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; max-width: 920px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border)); }
+    .timeline-item { position: relative; padding-left: 55px; margin-bottom: 2rem; opacity: 0; transform: translateY(25px); transition: all 0.55s ease; }
+    .timeline-item.visible { opacity: 1; transform: translateY(0); }
+    .timeline-dot { position: absolute; left: 10px; top: 10px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg-primary); border: 3px solid var(--accent); z-index: 1; }
+    .timeline-content { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.35rem; transition: var(--transition); }
+    .timeline-content:hover { border-color: rgba(34,211,238,0.4); }
+    .timeline-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.55rem; }
+    .company-info { display: flex; flex-direction: column; gap: 0.25rem; }
+    .company-name { font-weight: 700; font-size: 1.05rem; }
+    .timeline-role { color: var(--accent); font-size: 0.9rem; font-weight: 500; }
+    .period-logo-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 0.55rem; }
+    .timeline-period { font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); padding: 0.2rem 0.7rem; border-radius: 50px; white-space: nowrap; }
+    .company-logo-sm { height: 40px; width: auto; max-width: 120px; object-fit: contain; border-radius: 8px; background: rgba(255,255,255,0.06); padding: 4px 8px; }
+    .company-logo-sm.circular { border-radius: 50%; height: 44px; width: 44px; object-fit: cover; padding: 0; }
+    .timeline-project { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.85rem; font-style: italic; }
+    .timeline-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .btn-sm { padding: 0.4rem 0.9rem; font-size: 0.78rem; border-radius: 50px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); transition: var(--transition); }
+    .btn-sm:hover, .btn-sm.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+    .timeline-details, .project-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease; opacity: 0; }
+    .timeline-details.open, .project-panel.open { max-height: 1400px; opacity: 1; margin-top: 1.1rem; }
+    .timeline-details ul { list-style: none; padding: 0; }
+    .timeline-details li { position: relative; padding-left: 1.15rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.88rem; }
+    .timeline-details li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+    .project-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; }
+    .project-tab { padding: 0.4rem 0.9rem; font-size: 0.8rem; border-radius: 6px; background: var(--bg-secondary); border: 1px solid transparent; color: var(--text-muted); cursor: pointer; transition: var(--transition); font-weight: 500; }
+    .project-tab:hover { color: var(--text-secondary); }
+    .project-tab.active { background: var(--accent-glow); border-color: rgba(34,211,238,0.35); color: var(--accent); }
+    .project-tab-content { display: none; }
+    .project-tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .demo-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 1.15rem; }
+    .demo-card h4 { font-size: 0.95rem; margin-bottom: 0.45rem; color: var(--accent); }
+    .demo-card p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.7rem; }
+    .demo-features { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .demo-features span { background: rgba(34,211,238,0.08); color: var(--text-muted); padding: 0.22rem 0.6rem; border-radius: 50px; font-size: 0.72rem; }
+
+    /* AI TOOLS – 4 per row */
+    .ai-tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.15rem; }
+    .ai-tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.35rem; transition: var(--transition); display: flex; flex-direction: column; }
+    .ai-tool-card:hover { border-color: rgba(34,211,238,0.4); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+    .ai-tool-icon { font-size: 1.5rem; margin-bottom: 0.65rem; }
+    .ai-tool-card h3 { font-size: 0.98rem; margin-bottom: 0.45rem; }
+    .ai-tool-card p { font-size: 0.84rem; color: var(--text-secondary); flex-grow: 1; margin-bottom: 0.9rem; }
+    .ai-tool-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .ai-tool-tags span { background: var(--bg-secondary); color: var(--text-muted); padding: 0.18rem 0.5rem; border-radius: 50px; font-size: 0.68rem; }
+    .ai-badge { display: inline-block; background: rgba(34,211,238,0.12); color: var(--accent); padding: 0.18rem 0.55rem; border-radius: 50px; font-size: 0.68rem; font-weight: 600; margin-bottom: 0.55rem; }
+
+    /* Showcase dashboards */
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .showcase-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .showcase-header { padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .showcase-header h3 { font-size: 1.02rem; }
+    .showcase-badge { background: rgba(34,211,238,0.15); color: var(--accent); padding: 0.2rem 0.65rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; }
+    .showcase-body { padding: 1.15rem 1.25rem; }
+    .showcase-desc { color: var(--text-secondary); font-size: 0.84rem; margin-bottom: 0.9rem; }
+    .dashboard-preview, .workflow-preview { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; border: 1px solid var(--border); }
+    .dash-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem; margin-bottom: 0.85rem; }
+    .dash-stat { background: var(--bg-card); border-radius: 7px; padding: 0.6rem 0.4rem; text-align: center; }
+    .dash-stat-value { font-size: 1.15rem; font-weight: 700; }
+    .dash-stat-value.success { color: var(--success); }
+    .dash-stat-value.warning { color: var(--warning); }
+    .dash-stat-value.danger { color: var(--danger); }
+    .dash-stat-label { font-size: 0.62rem; color: var(--text-muted); }
+    .progress-bar { height: 7px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; margin: 0.35rem 0; }
+    .progress-fill { height: 100%; border-radius: 4px; transition: width 1.4s ease; }
+    .progress-fill.cyan { background: linear-gradient(90deg, var(--accent-dark), var(--accent)); }
+    .progress-fill.green { background: linear-gradient(90deg, #059669, var(--success)); }
+    .progress-fill.purple { background: linear-gradient(90deg, #7c3aed, var(--purple)); }
+    .bug-item { display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); font-size: 0.76rem; }
+    .bug-priority { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .bug-priority.high { background: var(--danger); }
+    .bug-priority.medium { background: var(--warning); }
+    .bug-priority.low { background: var(--success); }
+    .bug-id { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.7rem; }
+    .dash-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.75rem 0; }
+    .mini-chart { background: var(--bg-card); border-radius: 8px; padding: 0.7rem; }
+    .mini-chart h5 { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.45rem; }
+    .bar-chart { display: flex; align-items: flex-end; gap: 4px; height: 55px; }
+    .bar { flex: 1; border-radius: 3px 3px 0 0; background: var(--accent); min-height: 8px; transition: height 0.8s ease; }
+    .bar.g { background: var(--success); }
+    .bar.w { background: var(--warning); }
+    .bar.d { background: var(--danger); }
+    .pie-wrap { display: flex; align-items: center; gap: 0.6rem; }
+    .pie { width: 52px; height: 52px; border-radius: 50%; background: conic-gradient(var(--success) 0% 62%, var(--warning) 62% 82%, var(--danger) 82% 100%); flex-shrink: 0; }
+    .pie-legend { font-size: 0.68rem; color: var(--text-muted); line-height: 1.5; }
+    .pie-legend span { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+    .status-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+    .status-pill { font-size: 0.68rem; padding: 0.18rem 0.5rem; border-radius: 50px; font-weight: 500; }
+    .status-pill.pass { background: rgba(52,211,153,0.15); color: var(--success); }
+    .status-pill.fail { background: rgba(248,113,113,0.15); color: var(--danger); }
+    .status-pill.skip { background: rgba(251,191,36,0.15); color: var(--warning); }
+    .status-pill.run { background: rgba(34,211,238,0.15); color: var(--accent); }
+
+    .workflow-node { display: flex; align-items: center; gap: 0.6rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 7px; padding: 0.6rem 0.85rem; margin-bottom: 0.45rem; transition: var(--transition); }
+    .workflow-node.active { border-color: var(--accent); }
+    .workflow-node.completed { border-color: var(--success); }
+    .node-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+    .node-icon.schedule { background: rgba(167,139,250,0.2); }
+    .node-icon.jira { background: rgba(34,211,238,0.2); }
+    .node-icon.ai { background: rgba(251,191,36,0.2); }
+    .node-icon.notify { background: rgba(52,211,153,0.2); }
+    .node-icon.metrics { background: rgba(167,139,250,0.2); }
+    .node-icon.risk { background: rgba(248,113,113,0.2); }
+    .node-info h5 { font-size: 0.78rem; }
+    .node-info p { font-size: 0.62rem; color: var(--text-muted); }
+    .node-status { margin-left: auto; font-size: 0.62rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 50px; white-space: nowrap; }
+    .node-status.pending { background: var(--bg-primary); color: var(--text-muted); }
+    .node-status.running { background: rgba(34,211,238,0.15); color: var(--accent); }
+    .node-status.done { background: rgba(52,211,153,0.15); color: var(--success); }
+    .run-btn { width: 100%; margin-top: 0.75rem; padding: 0.6rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #0b1120; border: none; border-radius: 7px; font-weight: 600; font-size: 0.84rem; cursor: pointer; }
+    .run-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* EDUCATION & AWARDS */
+    .edu-top { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem; text-align: center; }
+    .edu-top h3 { font-size: 1.1rem; margin-bottom: 0.85rem; }
+    .edu-degree { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .edu-school { color: var(--text-secondary); font-size: 0.9rem; }
+    .awards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
+    .award-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.35rem; text-align: center; transition: var(--transition); }
+    .award-card:hover { border-color: rgba(251,191,36,0.4); transform: translateY(-3px); }
+    .award-icon { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,191,36,0.05)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin: 0 auto 0.75rem; }
+    .award-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .award-meta { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* CONTACT – Tree structure */
+    .contact-section { text-align: center; position: relative; padding-bottom: 5rem; overflow: hidden; }
+    .tree-container { position: relative; max-width: 900px; margin: 2.5rem auto 0; min-height: 420px; }
+    .tree-trunk { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 18px; height: 120px; background: linear-gradient(to top, #3d2914, #5c4033); border-radius: 4px 4px 0 0; z-index: 1; }
+    .tree-trunk::before { content: ''; position: absolute; bottom: 0; left: -12px; width: 42px; height: 18px; background: #2d1f0f; border-radius: 50%; }
+    .tree-branches { position: relative; width: 100%; height: 320px; }
+    .branch { position: absolute; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.25rem; min-width: 170px; text-align: left; transition: var(--transition); text-decoration: none; color: inherit; box-shadow: 0 6px 20px rgba(0,0,0,0.25); z-index: 2; }
+    .branch:hover { border-color: var(--accent); transform: scale(1.04); box-shadow: 0 10px 28px rgba(34,211,238,0.15); }
+    .branch .b-icon { font-size: 1.35rem; margin-bottom: 0.35rem; }
+    .branch h4 { font-size: 0.88rem; margin-bottom: 0.15rem; }
+    .branch p { font-size: 0.78rem; color: var(--text-secondary); }
+    .branch.b1 { top: 10px; left: 8%; }
+    .branch.b2 { top: 10px; right: 8%; }
+    .branch.b3 { top: 115px; left: 2%; }
+    .branch.b4 { top: 115px; right: 2%; }
+    .branch.b5 { top: 220px; left: 18%; }
+    .branch.b6 { top: 220px; right: 18%; }
+    /* SVG branch lines */
+    .tree-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+    footer { padding: 1.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+
+    /* Back to top arrow */
+    .back-to-top { position: fixed; bottom: 1.75rem; right: 1.75rem; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #0b1120; border: none; font-size: 1.3rem; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.35s ease; box-shadow: 0 6px 20px rgba(34,211,238,0.35); display: flex; align-items: center; justify-content: center; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(34,211,238,0.45); }
+
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .skills-grid, .ai-tools-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-left { max-width: 100%; min-height: 0; display: block; }
+      .hero-bg { width: 100%; opacity: 0.28; }
+      .hero-bg::after { background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(11,17,32,0.88) 100%); }
+      .hero-right-spacer { display: none; }
+      .hero-proof-panel { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 1.25rem; }
+      .hero-stats { width: 100%; justify-content: space-around; }
+      .about-grid, .showcase-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); padding: 1.25rem; gap: 0.85rem; border-bottom: 1px solid var(--border); }
+      .awards-row { grid-template-columns: 1fr; }
+      .dash-row { grid-template-columns: repeat(2, 1fr); }
+      .tree-branches { height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; padding-bottom: 2rem; }
+      .branch { position: relative !important; top: auto !important; left: auto !important; right: auto !important; min-width: 0; }
+      .tree-trunk, .tree-svg { display: none; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid, .ai-tools-grid { grid-template-columns: 1fr; }
+      .hero-proof-panel { padding: 0.8rem 0.75rem; gap: 0.65rem; }
+      .hero-expertise { margin-top: 1.25rem; padding-top: 0; gap: 0.8rem; }
+      .company-logos-overlay { gap: 0.55rem 0.7rem; padding: 0.25rem 0.35rem; }
+      .company-logo-item { flex-basis: 68px; width: 68px; height: 28px; }
+      .company-logo-item.circular { flex-basis: 28px; width: 28px; height: 28px; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 0.55rem; padding: 0 0 0.65rem; }
+      .stat-item { flex: 1 1 28%; text-align: center; }
+      .stat-number { font-size: 1.3rem; }
+      .stat-label { font-size: 0.68rem; }
+      section { padding: 3.25rem 1.15rem; }
+      .nav-actions .btn-download { display: none; }
+      .nav-location { display: none; }
+      .logo-img { height: 40px; }
+      .dash-charts { grid-template-columns: 1fr; }
+      .tree-branches { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/mylogo.png" alt="Bhavesh Sahu" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#ai-tools">AI Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <span class="nav-location">📍 Pune, India</span>
+        <a href="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/Bhavesh_Sahu_Senior_QA_Engineer.pdf" class="btn-download" download target="_blank">↓ Download CV</a>
+        <a href="#contact" class="nav-cta">Let's Connect</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/mypic.png" alt="Bhavesh Sahu" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+        <h1>Hi, I'm <span class="highlight">Bhavesh Sahu</span></h1>
+        <p class="hero-subtitle">Senior QA Engineer | Manual, Automation & AI-Assisted Testing</p>
+        <p class="hero-desc">
+          8.5+ years of experience in software testing with strong expertise in both <strong>manual and automation testing</strong>.
+          Around 5 years focused on automation covering <strong>Mobile Application Testing (Android & iOS)</strong>, Web App Testing and API Testing.
+          Currently working as QA Engineer IV at PayPal, building AI-powered testing workflows and scalable automation frameworks.
+        </p>
+        <div class="hero-cta">
+          <a href="#ai-tools" class="btn btn-primary">View AI Tools →</a>
+          <a href="mailto:bhavesh23sahu@gmail.com" class="btn btn-outline">Email Me</a>
+          <a href="https://www.linkedin.com/in/bhavesh-sahu" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+          <a href="tel:+919420356234" class="btn btn-call">📞 Call</a>
+        </div>
+        <div class="hero-expertise">
+          <div class="visual-card">
+            <h4>Core Testing Expertise</h4>
+            <div class="testing-tags">
+              <span>Manual Testing</span>
+              <span>API Testing</span>
+              <span>Web Testing</span>
+              <span>Mobile (Android & iOS)</span>
+              <span>E2E Testing</span>
+              <span>Performance</span>
+              <span>Security</span>
+              <span>Regression</span>
+            </div>
+          </div>
+          <div class="visual-card">
+            <h4>AI & Automation Stack</h4>
+            <div class="testing-tags">
+              <span>Playwright</span>
+              <span>Pytest</span>
+              <span>Python</span>
+              <span>Claude Code</span>
+              <span>n8n</span>
+              <span>Appium</span>
+              <span>GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right-spacer" aria-hidden="true"></div>
+    </div>
+    <!-- Combined experience and company panel on the right -->
+    <div class="hero-proof-panel">
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-number">8.5+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-item"><div class="stat-number">~5</div><div class="stat-label">Years Automation</div></div>
+        <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Domains Covered</div></div>
+      </div>
+      <div class="company-logos-overlay">
+        <span class="label">Worked with</span>
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/paypal-logo.png" alt="PayPal" class="company-logo-item" title="PayPal" />
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/amdocs.png" alt="Amdocs" class="company-logo-item" title="Amdocs" />
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/paytm.png" alt="Paytm" class="company-logo-item" title="Paytm" />
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/apkss.jpeg" alt="APK" class="company-logo-item" title="APK Software" />
+        <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/jio.png" alt="Jio" class="company-logo-item circular" title="Reliance Jio" />
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">About Me</div>
+        <h2 class="section-title">Quality-focused. AI-powered. Results-driven.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>I am a Senior QA Engineer with <strong>8.5+ years</strong> of experience in software testing covering both manual and automation. Around 5 years have been dedicated to automation testing across Mobile (Android & iOS), Web and API layers.</p>
+          <p>Currently at <strong>PayPal</strong> as <strong>QA Engineer IV</strong>, I design and execute end-to-end automation for critical wallet and payment flows using Pytest, Playwright and Python. I actively build AI-powered internal tools to accelerate QA processes.</p>
+          <p>Beyond payments, I have delivered quality across <strong>telecom (billing, ordering, AI chatbot)</strong>, <strong>fintech / UPI / wallets</strong>, <strong>consumer apps (Sports/OTT, coaching, quick commerce)</strong> and <strong>network / field testing</strong> — giving me a versatile, domain-agnostic testing approach.</p>
+          <p>I specialize in building scalable automation frameworks, defining test strategies, and integrating AI into daily QA workflows — from intelligent dashboards to scheduled automation pipelines.</p>
+        </div>
+        <div class="fade-in">
+          <div class="highlight-card"><div class="highlight-icon">🤖</div><div><h4>AI-Driven Testing</h4><p>Claude Code, GitHub Copilot, n8n & custom AI tools for faster test design and reporting.</p></div></div>
+          <div class="highlight-card"><div class="highlight-icon">💳</div><div><h4>Payments Domain Expert</h4><p>Deep experience in wallets, UPI, cards, QR payments and financial transaction integrity.</p></div></div>
+          <div class="highlight-card"><div class="highlight-icon">📡</div><div><h4>Telecom & Network</h4><p>AT&T lifecycle, billing/ordering, AI chatbot and LTE field/signal strength validation.</p></div></div>
+          <div class="highlight-card"><div class="highlight-icon">📱</div><div><h4>Consumer & Mobile Apps</h4><p>Sports/OTT, coaching, quick commerce apps — functional, UI and regression on Android & iOS.</p></div></div>
+          <div class="highlight-card"><div class="highlight-icon">⚙️</div><div><h4>Full-Stack QA & CI/CD</h4><p>API, UI, E2E, Performance, Security, Accessibility + Hybrid frameworks, Jenkins, GitHub Actions.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Expertise</div>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-desc">Click any skill for a short description.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category fade-in">
+          <h3>🤖 AI & Automation</h3>
+          <div class="skill-tags">
+            <span class="skill-tag" data-info="Modern browser automation framework used for E2E and UI validation of critical flows.">Playwright</span>
+            <span class="skill-tag" data-info="Python testing framework for structured API automation, fixtures and scalable test suites.">Pytest</span>
+            <span class="skill-tag" data-info="Primary language for API automation and building AI-assisted testing tools and utilities.">Python</span>
+            <span class="skill-tag" data-info="AI coding assistant used for test scaffolding, debugging and accelerating framework development.">Claude Code</span>
+            <span class="skill-tag" data-info="Workflow automation platform used to build scheduled QA reporting and data pipelines.">n8n</span>
+            <span class="skill-tag" data-info="AI pair-programming tool used for code completion and rapid test script generation.">GitHub Copilot</span>
+            <span class="skill-tag" data-info="Browser automation tool used for regression and functional test automation.">Selenium</span>
+            <span class="skill-tag" data-info="Mobile automation framework for Android and iOS application testing.">Appium</span>
+            <span class="skill-tag" data-info="Design pattern for building maintainable and scalable UI automation frameworks.">POM</span>
+            <span class="skill-tag" data-info="Framework design combining API + UI layers with reusable components and configurations.">Hybrid Frameworks</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3>🧪 Testing Types</h3>
+          <div class="skill-tags">
+            <span class="skill-tag" data-info="Validating features against requirements across web, mobile and backend services.">Functional</span>
+            <span class="skill-tag" data-info="Ensuring existing functionality remains stable after changes and releases.">Regression</span>
+            <span class="skill-tag" data-info="REST API, microservices, request/response validation, status codes and data integrity.">API / Backend</span>
+            <span class="skill-tag" data-info="Complete user journey validation combining UI and API layers.">UI / E2E</span>
+            <span class="skill-tag" data-info="Quick critical-path checks after builds to decide further testing.">Smoke</span>
+            <span class="skill-tag" data-info="Focused verification after minor changes or bug fixes.">Sanity</span>
+            <span class="skill-tag" data-info="Stakeholder acceptance testing before production releases.">UAT</span>
+            <span class="skill-tag" data-info="Load, stress and performance validation of critical flows.">Performance</span>
+            <span class="skill-tag" data-info="Security, compliance and vulnerability related testing.">Security</span>
+            <span class="skill-tag" data-info="Ensuring applications are usable by people with disabilities.">Accessibility</span>
+            <span class="skill-tag" data-info="Testing individual services and their interactions in distributed systems.">Microservices</span>
+            <span class="skill-tag" data-info="Cross-browser and cross-device validation.">Compatibility</span>
+            <span class="skill-tag" data-info="A/B and feature-flag related quality checks.">A/B Testing</span>
+            <span class="skill-tag" data-info="Usability and user experience evaluation.">Usability</span>
+            <span class="skill-tag" data-info="Integration between systems, third-party services and payment gateways.">Integration</span>
+            <span class="skill-tag" data-info="Database validation, data integrity and ETL related checks.">Database / ETL</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3>🛠️ Tools & Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag" data-info="API exploration, collection management and automated API testing.">Postman</span>
+            <span class="skill-tag" data-info="Defect tracking, sprint management and team collaboration.">Jira</span>
+            <span class="skill-tag" data-info="Test case management and execution tracking.">TestRail</span>
+            <span class="skill-tag" data-info="Network traffic inspection and API debugging.">Charles Proxy</span>
+            <span class="skill-tag" data-info="Cross-browser and real-device cloud testing platform.">BrowserStack</span>
+            <span class="skill-tag" data-info="Performance and load testing tool.">JMeter</span>
+            <span class="skill-tag" data-info="Log analysis and monitoring.">Kibana</span>
+            <span class="skill-tag" data-info="Containerization for consistent test environments.">Docker</span>
+            <span class="skill-tag" data-info="Container orchestration platform.">Kubernetes</span>
+            <span class="skill-tag" data-info="Mobile app testing and crash analytics.">Firebase</span>
+            <span class="skill-tag" data-info="Cloud platform for deployments and services.">GCP</span>
+            <span class="skill-tag" data-info="Live API behavior tracking tool.">Hawkeye</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3>🔄 CI/CD & Process</h3>
+          <div class="skill-tags">
+            <span class="skill-tag" data-info="Continuous integration server for triggering automation suites.">Jenkins</span>
+            <span class="skill-tag" data-info="Modern CI/CD pipelines for automated test execution.">GitHub Actions</span>
+            <span class="skill-tag" data-info="Source control and pipeline integration.">Bitbucket</span>
+            <span class="skill-tag" data-info="Agile/Scrum practices including sprint planning and daily stand-ups.">Agile / Scrum</span>
+            <span class="skill-tag" data-info="Strong understanding of Software Development and Testing Life Cycles.">SDLC / STLC</span>
+            <span class="skill-tag" data-info="Complete defect lifecycle management.">Bug Life Cycle</span>
+            <span class="skill-tag" data-info="Unix commands and SQL queries for data validation.">Unix / SQL</span>
+            <span class="skill-tag" data-info="Process automation and workflow engine.">Camunda</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Career</div>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-desc">Click Responsibilities or Projects to explore each role.</p>
+      </div>
+      <div class="timeline">
+
+        <!-- PayPal -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-info">
+                <div class="company-name">PayPal</div>
+                <div class="timeline-role">QA Engineer IV</div>
+              </div>
+              <div class="period-logo-wrap">
+                <div class="timeline-period">Jul 2025 – Present</div>
+                <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/paypal-logo.png" alt="PayPal" class="company-logo-sm" />
+              </div>
+            </div>
+            <div class="timeline-project">RUNE Mexico Wallet · QR Qatar Airways Wallet · WaaS · PLW</div>
+            <div class="timeline-actions">
+              <button class="btn-sm" onclick="toggleSection(this,'paypal-resp')">Responsibilities</button>
+              <button class="btn-sm" onclick="toggleSection(this,'paypal-proj')">Projects</button>
+            </div>
+            <div class="timeline-details" id="paypal-resp">
+              <ul>
+                <li>Designed and executed API, UI and E2E test automation for web, Android and iOS using Pytest, Playwright & Python.</li>
+                <li>Automated critical payment workflows: wallet creation/link-unlink, top-ups, checkout, PayPal, cards, banks, rewards & digital wallets.</li>
+                <li>Built scalable automation framework with reusable base classes, API clients, POM and environment management.</li>
+                <li>Defined test strategy, plans and automation architecture ensuring high-quality coverage.</li>
+                <li>Leveraged Claude Code to accelerate scaffolding, debugging & code generation while retaining ownership of design and validation.</li>
+                <li>Created AI-powered internal tools for checkout link generation and multi-type checkout flows (link-based, UI-based, JS-based).</li>
+              </ul>
+            </div>
+            <div class="project-panel" id="paypal-proj">
+              <div class="project-tabs">
+                <button class="project-tab active" onclick="switchTab(this,'pp-tab1')">Checkout + Wallets</button>
+                <button class="project-tab" onclick="switchTab(this,'pp-tab2')">AI Checkout Tools</button>
+              </div>
+              <div class="project-tab-content active" id="pp-tab1">
+                <div class="demo-card">
+                  <h4>PayPal Checkout with Qatar Airways & RUNE Mexico Wallet</h4>
+                  <p>End-to-end testing and full API automation of onboarding, checkout, P2P payments, add funds and regression across multiple funding instruments (cards, banks, rewards points, PayPal balance).</p>
+                  <div class="demo-features"><span>API Automation</span><span>E2E + UI Validation</span><span>Wallet Lifecycle</span><span>Checkout Flows</span><span>Multi FI Regression</span></div>
+                </div>
+              </div>
+              <div class="project-tab-content" id="pp-tab2">
+                <div class="demo-card">
+                  <h4>AI-Assisted Checkout Tools</h4>
+                  <p>Built internal tools using AI that generate checkout links and execute complete operations for link-based, UI-based and JS-based checkout types — significantly reducing manual effort.</p>
+                  <div class="demo-features"><span>Claude Code</span><span>Custom Tooling</span><span>Link / UI / JS Checkout</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amdocs -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-info">
+                <div class="company-name">Amdocs</div>
+                <div class="timeline-role">Senior Software Test Engineer</div>
+              </div>
+              <div class="period-logo-wrap">
+                <div class="timeline-period">Mar 2024 – Apr 2025</div>
+                <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/amdocs.png" alt="Amdocs" class="company-logo-sm" />
+              </div>
+            </div>
+            <div class="timeline-project">AT&T BSSe Telecom · AI Chat Bot</div>
+            <div class="timeline-actions">
+              <button class="btn-sm" onclick="toggleSection(this,'amdocs-resp')">Responsibilities</button>
+              <button class="btn-sm" onclick="toggleSection(this,'amdocs-proj')">Projects</button>
+            </div>
+            <div class="timeline-details" id="amdocs-resp">
+              <ul>
+                <li>Validated telecom project functionalities (billing, ordering, accounting).</li>
+                <li>Performed API Automation with Python and UI testing using Postman, Kibana and Kubernetes.</li>
+                <li>Led BCT, regression and promo/bill validation tests to ensure compliance.</li>
+                <li>Collaborated with Tier-1 support and DevOps for root cause analysis and issue resolution.</li>
+              </ul>
+            </div>
+            <div class="project-panel" id="amdocs-proj">
+              <div class="project-tabs">
+                <button class="project-tab active" onclick="switchTab(this,'am-tab1')">AT&T Lifecycle</button>
+                <button class="project-tab" onclick="switchTab(this,'am-tab2')">AI Chatbot</button>
+              </div>
+              <div class="project-tab-content active" id="am-tab1">
+                <div class="demo-card">
+                  <h4>AT&T Ordering, Billing & Accounting</h4>
+                  <p>API testing of complete end-to-end workflows for account creation, suspension, resume, terminate and re-establishment. Included DB validation and process management checks.</p>
+                  <div class="demo-features"><span>API E2E Workflows</span><span>Account Lifecycle</span><span>DB Validation</span><span>Billing & Ordering</span></div>
+                </div>
+              </div>
+              <div class="project-tab-content" id="am-tab2">
+                <div class="demo-card">
+                  <h4>AI Chatbot Testing</h4>
+                  <p>Functional and conversation-flow testing of the AI Chatbot integrated with telecom services.</p>
+                  <div class="demo-features"><span>AI Chatbot</span><span>Conversation Flows</span><span>Integration Testing</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paytm -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-info">
+                <div class="company-name">Paytm Payments Bank</div>
+                <div class="timeline-role">QA Engineer (TPM intermittently)</div>
+              </div>
+              <div class="period-logo-wrap">
+                <div class="timeline-period">Jun 2021 – Mar 2024</div>
+                <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/paytm.png" alt="Paytm" class="company-logo-sm" />
+              </div>
+            </div>
+            <div class="timeline-project">Paytm App – P2P, P2M, Wallet, UPI, QR</div>
+            <div class="timeline-actions">
+              <button class="btn-sm" onclick="toggleSection(this,'paytm-resp')">Responsibilities</button>
+              <button class="btn-sm" onclick="toggleSection(this,'paytm-proj')">Projects</button>
+            </div>
+            <div class="timeline-details" id="paytm-resp">
+              <ul>
+                <li>Owned modules: P2P, P2M, Wallet KYC and Add Money. Contributed to UPI Lite, Lite Offline, UPI CC & wallet interoperability.</li>
+                <li>Validated multiple pay modes (wallet, postpaid, UPI, UPI Lite, bank, cards, netbanking) and QR-based payment flows.</li>
+                <li>Performed mobile automation with Appium across Android, iOS and Web. Heavy use of Charles Proxy for traffic analysis.</li>
+                <li>Ensured security, compatibility, functional, A/B, usability, compliance & accessibility testing.</li>
+              </ul>
+            </div>
+            <div class="project-panel" id="paytm-proj">
+              <div class="project-tabs">
+                <button class="project-tab active" onclick="switchTab(this,'pt-tab1')">Payments & Wallet</button>
+              </div>
+              <div class="project-tab-content active" id="pt-tab1">
+                <div class="demo-card">
+                  <h4>Paytm App – Payments & Wallet Ecosystem</h4>
+                  <p>Comprehensive testing of P2P, P2M transactions with all pay modes, wallet onboarding/KYC, add funds and full UI + E2E validation. Special focus on QR scanning across different devices and QR types (static, dynamic, non-payment).</p>
+                  <div class="demo-features"><span>P2P / P2M</span><span>UPI & UPI Lite</span><span>Wallet KYC</span><span>QR Scanning</span><span>Appium</span><span>Charles Proxy</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APK -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-info">
+                <div class="company-name">APK Software Solution</div>
+                <div class="timeline-role">Software Test Engineer</div>
+              </div>
+              <div class="period-logo-wrap">
+                <div class="timeline-period">Dec 2018 – Jun 2021</div>
+                <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/apkss.jpeg" alt="APK" class="company-logo-sm" />
+              </div>
+            </div>
+            <div class="timeline-project">Sports/OTT · Coaching App · Quick Commerce</div>
+            <div class="timeline-actions">
+              <button class="btn-sm" onclick="toggleSection(this,'apk-resp')">Responsibilities</button>
+              <button class="btn-sm" onclick="toggleSection(this,'apk-proj')">Projects</button>
+            </div>
+            <div class="timeline-details" id="apk-resp">
+              <ul>
+                <li>Conducted Smoke, Sanity, Functional, Regression & API testing; analyzed design documents for scenario identification.</li>
+                <li>Developed comprehensive test cases and performed Selenium (Java) automation on static websites.</li>
+                <li>Tracked defects, prepared reports and collaborated with developers on retesting cycles.</li>
+              </ul>
+            </div>
+            <div class="project-panel" id="apk-proj">
+              <div class="project-tabs">
+                <button class="project-tab active" onclick="switchTab(this,'apk-tab1')">Consumer Apps</button>
+              </div>
+              <div class="project-tab-content active" id="apk-tab1">
+                <div class="demo-card">
+                  <h4>Sports/OTT, Coaching & Quick Commerce Apps</h4>
+                  <p>UI and functional testing of consumer-facing applications in sports streaming, education coaching and quick commerce domains.</p>
+                  <div class="demo-features"><span>UI Testing</span><span>Functional Testing</span><span>Regression</span><span>Selenium Java</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jio -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-info">
+                <div class="company-name">Reliance Jio</div>
+                <div class="timeline-role">Trainee Engineer</div>
+              </div>
+              <div class="period-logo-wrap">
+                <div class="timeline-period">May 2015 – Apr 2016</div>
+                <img src="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/jio.png" alt="Jio" class="company-logo-sm circular" />
+              </div>
+            </div>
+            <div class="timeline-project">Signal / Network Strength Analysis</div>
+            <div class="timeline-actions">
+              <button class="btn-sm" onclick="toggleSection(this,'jio-resp')">Responsibilities</button>
+              <button class="btn-sm" onclick="toggleSection(this,'jio-proj')">Projects</button>
+            </div>
+            <div class="timeline-details" id="jio-resp">
+              <ul>
+                <li>Tested network strength analysis and field operations for LTE parameters (PCI, RSRP, RSRQ, SINR, Throughput, Handover).</li>
+                <li>Performed drive tests, scanner tests, frequency optimization, SSCVT, SCVT and related field activities.</li>
+              </ul>
+            </div>
+            <div class="project-panel" id="jio-proj">
+              <div class="project-tabs">
+                <button class="project-tab active" onclick="switchTab(this,'jio-tab1')">Network Apps</button>
+              </div>
+              <div class="project-tab-content active" id="jio-tab1">
+                <div class="demo-card">
+                  <h4>Network Velocity & Signal Strength Apps</h4>
+                  <p>Testing of applications that measure signal strength, download/upload speeds, RSRP, RSRQ, SINR for 4G networks. Included coverage maps of towers and PCI areas.</p>
+                  <div class="demo-features"><span>Signal Strength</span><span>RSRP / RSRQ / SINR</span><span>Drive Tests</span><span>Coverage Maps</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI TOOLS -->
+  <section id="ai-tools" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">AI in QA</div>
+        <h2 class="section-title">AI Tools I've Built for QA</h2>
+        <p class="section-desc">Working tools and prototypes that remove repetitive QA toil and improve speed & consistency.</p>
+      </div>
+      <div class="ai-tools-grid">
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Working Tool</div>
+          <div class="ai-tool-icon">🔗</div>
+          <h3>AI Checkout Link Generator</h3>
+          <p>Generates checkout links and executes complete operations for link-based, UI-based and JS-based checkout types. Built with Claude Code to reduce manual checkout testing effort.</p>
+          <div class="ai-tool-tags"><span>Claude Code</span><span>Python</span><span>PayPal Flows</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Working Prototype</div>
+          <div class="ai-tool-icon">📊</div>
+          <h3>QA Command Center Dashboard</h3>
+          <p>Aggregates Jira sprint health, test execution status, open bugs by priority and automation coverage into a single live view for stand-ups and release readiness.</p>
+          <div class="ai-tool-tags"><span>HTML/JS</span><span>Jira</span><span>Metrics</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Scheduled Automation</div>
+          <div class="ai-tool-icon">⚡</div>
+          <h3>Daily QA Report (n8n)</h3>
+          <p>Scheduled n8n workflow that runs every morning: fetches open Jira issues + test results, generates an AI summary and posts readiness report to Slack/Email.</p>
+          <div class="ai-tool-tags"><span>n8n</span><span>Claude</span><span>Jira API</span><span>Slack</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Working Prototype</div>
+          <div class="ai-tool-icon">🧠</div>
+          <h3>AI Test Case Drafter</h3>
+          <p>Takes a requirement or Jira ticket and generates structured test cases (preconditions, steps, expected results) using prompt engineering and Claude.</p>
+          <div class="ai-tool-tags"><span>Claude</span><span>Prompt Engineering</span><span>Test Design</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Internal Tool</div>
+          <div class="ai-tool-icon">🛠️</div>
+          <h3>Automation Framework Accelerator</h3>
+          <p>AI-assisted scaffolding of Page Object classes, API clients and reusable base methods so new test suites can be started in minutes instead of hours.</p>
+          <div class="ai-tool-tags"><span>Claude Code</span><span>Playwright</span><span>Pytest</span><span>POM</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Working Prototype</div>
+          <div class="ai-tool-icon">📋</div>
+          <h3>Structured Bug Report Generator</h3>
+          <p>Converts raw bug notes or Jira tickets into consistent, complete bug reports with steps, expected vs actual, severity and environment details.</p>
+          <div class="ai-tool-tags"><span>Claude</span><span>Jira</span><span>Reporting</span></div>
+        </div>
+        <!-- New tools -->
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Working Prototype</div>
+          <div class="ai-tool-icon">🔍</div>
+          <h3>AI Log & Failure Analyzer</h3>
+          <p>Parses failed test logs and stack traces, clusters similar failures, and suggests likely root causes and flaky vs real defects to speed up triage.</p>
+          <div class="ai-tool-tags"><span>Claude</span><span>Log Analysis</span><span>Triage</span></div>
+        </div>
+        <div class="ai-tool-card fade-in">
+          <div class="ai-badge">Internal Tool</div>
+          <div class="ai-tool-icon">📈</div>
+          <h3>Release Readiness Scorer</h3>
+          <p>Combines open bugs, automation pass rate, coverage gaps and risk tags into a single readiness score with recommended go / no-go rationale for stakeholders.</p>
+          <div class="ai-tool-tags"><span>Metrics</span><span>Risk</span><span>Decision Support</span></div>
+        </div>
+      </div>
+
+      <!-- Interactive demos -->
+      <div class="showcase-grid fade-in" style="margin-top: 2.5rem;">
+        <div class="showcase-card">
+          <div class="showcase-header">
+            <h3>📊 QA Command Center</h3>
+            <span class="showcase-badge">Live Demo</span>
+          </div>
+          <div class="showcase-body">
+            <p class="showcase-desc">Interactive metrics view used for daily stand-ups and release readiness.</p>
+            <div class="dashboard-preview">
+              <div class="dash-row">
+                <div class="dash-stat"><div class="dash-stat-value success" id="passRate">94%</div><div class="dash-stat-label">Pass Rate</div></div>
+                <div class="dash-stat"><div class="dash-stat-value warning" id="openBugs">12</div><div class="dash-stat-label">Open Bugs</div></div>
+                <div class="dash-stat"><div class="dash-stat-value" style="color:var(--accent)" id="coverage">87%</div><div class="dash-stat-label">Coverage</div></div>
+                <div class="dash-stat"><div class="dash-stat-value danger" id="blockers">2</div><div class="dash-stat-label">Blockers</div></div>
+              </div>
+              <div style="margin-bottom:0.55rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:0.15rem;"><span>Sprint Progress</span><span id="sprintPct">72%</span></div>
+                <div class="progress-bar"><div class="progress-fill cyan" id="sprintBar" style="width:0%"></div></div>
+              </div>
+              <div style="margin-bottom:0.55rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:0.15rem;"><span>Automation Health</span><span id="autoPct">91%</span></div>
+                <div class="progress-bar"><div class="progress-fill green" id="autoBar" style="width:0%"></div></div>
+              </div>
+              <div class="dash-charts">
+                <div class="mini-chart">
+                  <h5>Last 7 Runs</h5>
+                  <div class="bar-chart" id="runBars">
+                    <div class="bar g" style="height:70%"></div>
+                    <div class="bar g" style="height:85%"></div>
+                    <div class="bar w" style="height:55%"></div>
+                    <div class="bar g" style="height:90%"></div>
+                    <div class="bar g" style="height:78%"></div>
+                    <div class="bar d" style="height:40%"></div>
+                    <div class="bar g" style="height:92%"></div>
+                  </div>
+                </div>
+                <div class="mini-chart">
+                  <h5>Bug Severity</h5>
+                  <div class="pie-wrap">
+                    <div class="pie" id="bugPie"></div>
+                    <div class="pie-legend">
+                      <div><span style="background:var(--success)"></span> Low 62%</div>
+                      <div><span style="background:var(--warning)"></span> Med 20%</div>
+                      <div><span style="background:var(--danger)"></span> High 18%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="status-pills">
+                <span class="status-pill pass">142 Passed</span>
+                <span class="status-pill fail">9 Failed</span>
+                <span class="status-pill skip">4 Skipped</span>
+                <span class="status-pill run">3 Running</span>
+              </div>
+              <div class="bug-item" style="margin-top:0.55rem;"><span class="bug-priority high"></span><span class="bug-id">PAY-4821</span><span style="color:var(--text-secondary)">Wallet top-up fails on slow network</span></div>
+              <div class="bug-item"><span class="bug-priority high"></span><span class="bug-id">PAY-4799</span><span style="color:var(--text-secondary)">QR scan timeout on iOS 18</span></div>
+              <div class="bug-item"><span class="bug-priority medium"></span><span class="bug-id">PAY-4810</span><span style="color:var(--text-secondary)">Incorrect currency symbol in receipt</span></div>
+            </div>
+            <button class="run-btn" onclick="refreshDashboard()">🔄 Refresh Metrics</button>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-header">
+            <h3>⚡ Daily QA Report (n8n)</h3>
+            <span class="showcase-badge">Simulate</span>
+          </div>
+          <div class="showcase-body">
+            <p class="showcase-desc">Scheduled workflow used by experienced QA teams for morning readiness.</p>
+            <div class="workflow-preview" id="workflowNodes">
+              <div class="workflow-node" data-step="0"><div class="node-icon schedule">⏰</div><div class="node-info"><h5>Schedule Trigger</h5><p>Daily 09:00 IST</p></div><span class="node-status pending">Pending</span></div>
+              <div class="workflow-node" data-step="1"><div class="node-icon jira">📋</div><div class="node-info"><h5>Fetch Jira + Results</h5><p>Open bugs, sprint, last run</p></div><span class="node-status pending">Pending</span></div>
+              <div class="workflow-node" data-step="2"><div class="node-icon metrics">📊</div><div class="node-info"><h5>Compute Metrics</h5><p>Pass rate, coverage, risk tags</p></div><span class="node-status pending">Pending</span></div>
+              <div class="workflow-node" data-step="3"><div class="node-icon risk">⚠️</div><div class="node-info"><h5>Risk & Blocker Check</h5><p>P0/P1 + flaky analysis</p></div><span class="node-status pending">Pending</span></div>
+              <div class="workflow-node" data-step="4"><div class="node-icon ai">🧠</div><div class="node-info"><h5>AI Summary</h5><p>Claude readiness brief</p></div><span class="node-status pending">Pending</span></div>
+              <div class="workflow-node" data-step="5"><div class="node-icon notify">📣</div><div class="node-info"><h5>Notify Team</h5><p>Slack + Email digest</p></div><span class="node-status pending">Pending</span></div>
+            </div>
+            <button class="run-btn" id="runWorkflowBtn" onclick="runWorkflow()">▶ Simulate Daily Run</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Background</div>
+        <h2 class="section-title">Education & Recognition</h2>
+      </div>
+      <div class="edu-top fade-in">
+        <h3>🎓 Education</h3>
+        <div class="edu-degree">Bachelor of Engineering – Electronics & Telecommunication</div>
+        <div class="edu-school">Bapurao Deshmukh College of Engineering, Sevagram</div>
+        <div class="edu-school">R.T.M. Nagpur University</div>
+      </div>
+      <div class="awards-row">
+        <div class="award-card fade-in">
+          <div class="award-icon">✨</div>
+          <div class="award-title">iDelight Award</div>
+          <div class="award-meta">Intelliswift · Jan 2023</div>
+        </div>
+        <div class="award-card fade-in">
+          <div class="award-icon">🔥</div>
+          <div class="award-title">Passion Award</div>
+          <div class="award-meta">Intelliswift · Aug 2022</div>
+        </div>
+        <div class="award-card fade-in">
+          <div class="award-icon">🏅</div>
+          <div class="award-title">Hall of Fame</div>
+          <div class="award-meta">APK Software Solution · Oct 2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Get In Touch</div>
+        <h2 class="section-title">Let's build quality together</h2>
+        <p class="section-desc">Open to Senior QA, Automation Lead and AI-in-Testing opportunities.</p>
+      </div>
+      <div class="tree-container fade-in">
+        <svg class="tree-svg" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet">
+          <!-- Simple branch lines from trunk center -->
+          <path d="M450 300 Q450 220 180 80" stroke="#3d5a4c" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M450 300 Q450 220 720 80" stroke="#3d5a4c" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M450 300 Q400 200 120 180" stroke="#3d5a4c" stroke-width="2.5" fill="none" opacity="0.6"/>
+          <path d="M450 300 Q500 200 780 180" stroke="#3d5a4c" stroke-width="2.5" fill="none" opacity="0.6"/>
+          <path d="M450 300 Q380 250 220 270" stroke="#3d5a4c" stroke-width="2" fill="none" opacity="0.55"/>
+          <path d="M450 300 Q520 250 680 270" stroke="#3d5a4c" stroke-width="2" fill="none" opacity="0.55"/>
+        </svg>
+        <div class="tree-branches">
+          <a href="mailto:bhavesh23sahu@gmail.com" class="branch b1">
+            <div class="b-icon">✉️</div>
+            <h4>Email</h4>
+            <p>bhavesh23sahu@gmail.com</p>
+          </a>
+          <a href="https://www.linkedin.com/in/bhavesh-sahu" target="_blank" rel="noopener" class="branch b2">
+            <div class="b-icon">💼</div>
+            <h4>LinkedIn</h4>
+            <p>Connect with me</p>
+          </a>
+          <a href="tel:+919420356234" class="branch b3">
+            <div class="b-icon">📱</div>
+            <h4>Phone</h4>
+            <p>+91-9420356234</p>
+          </a>
+          <a href="https://wa.me/919420356234" target="_blank" rel="noopener" class="branch b4">
+            <div class="b-icon">💬</div>
+            <h4>WhatsApp</h4>
+            <p>Message me</p>
+          </a>
+          <div class="branch b5" style="cursor:default;">
+            <div class="b-icon">📍</div>
+            <h4>Location</h4>
+            <p>Pune, India</p>
+          </div>
+          <a href="https://raw.githubusercontent.com/bhaveshrsahu/Me/main/Bhavesh_Sahu_Senior_QA_Engineer.pdf" target="_blank" class="branch b6">
+            <div class="b-icon">📄</div>
+            <h4>Download CV</h4>
+            <p>PDF Resume</p>
+          </a>
+        </div>
+        <div class="tree-trunk"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Bhavesh R. Sahu · Built with attention to quality</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      // Back to top appears near bottom
+      const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 400);
+      document.getElementById('backToTop').classList.toggle('visible', nearBottom);
+    });
+
+       const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function toggleSection(btn, id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      const parent = btn.closest('.timeline-content');
+      parent.querySelectorAll('.timeline-details, .project-panel').forEach(d => d.classList.remove('open'));
+      parent.querySelectorAll('.btn-sm').forEach(b => b.classList.remove('active'));
+      if (!isOpen) { el.classList.add('open'); btn.classList.add('active'); }
+    }
+
+    function switchTab(btn, tabId) {
+      const panel = btn.closest('.project-panel');
+      panel.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+      panel.querySelectorAll('.project-tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    document.querySelectorAll('.skill-tag').forEach(tag => {
+      tag.addEventListener('click', e => {
+        e.stopPropagation();
+        document.querySelectorAll('.skill-tag').forEach(t => { if (t !== tag) t.classList.remove('active'); });
+        tag.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', () => document.querySelectorAll('.skill-tag').forEach(t => t.classList.remove('active')));
+    document.querySelectorAll('.skill-tag[data-info]').forEach(tag => {
+      const tip = document.createElement('div');
+      tip.className = 'skill-tooltip';
+      tip.textContent = tag.getAttribute('data-info');
+      tag.appendChild(tip);
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
+
+    function animateDashboard() {
+      const s = document.getElementById('sprintBar');
+      const a = document.getElementById('autoBar');
+      if (s) { s.style.width = '0%'; setTimeout(() => { s.style.width = '72%'; }, 150); }
+      if (a) { a.style.width = '0%'; setTimeout(() => { a.style.width = '91%'; }, 200); }
+    }
+    function refreshDashboard() {
+      document.getElementById('passRate').textContent = (90 + Math.floor(Math.random()*8)) + '%';
+      document.getElementById('openBugs').textContent = 8 + Math.floor(Math.random()*10);
+      document.getElementById('coverage').textContent = (82 + Math.floor(Math.random()*12)) + '%';
+      document.getElementById('blockers').textContent = Math.floor(Math.random()*4);
+      document.getElementById('sprintPct').textContent = (65 + Math.floor(Math.random()*20)) + '%';
+      document.getElementById('autoPct').textContent = (85 + Math.floor(Math.random()*12)) + '%';
+      animateDashboard();
+    }
+
+    function runWorkflow() {
+      const btn = document.getElementById('runWorkflowBtn');
+      const nodes = document.querySelectorAll('#workflowNodes .workflow-node');
+      btn.disabled = true; btn.textContent = '⏳ Running...';
+      nodes.forEach(n => {
+        n.classList.remove('active','completed');
+        const st = n.querySelector('.node-status');
+        st.textContent = 'Pending'; st.className = 'node-status pending';
+      });
+      let step = 0;
+      const iv = setInterval(() => {
+        if (step > 0) {
+          nodes[step-1].classList.remove('active'); nodes[step-1].classList.add('completed');
+          const st = nodes[step-1].querySelector('.node-status');
+          st.textContent = 'Done'; st.className = 'node-status done';
+        }
+        if (step < nodes.length) {
+          nodes[step].classList.add('active');
+          const st = nodes[step].querySelector('.node-status');
+          st.textContent = 'Running'; st.className = 'node-status running';
+          step++;
+        } else {
+          clearInterval(iv); btn.disabled = false; btn.textContent = '✓ Complete — Run Again';
+          setTimeout(() => btn.textContent = '▶ Simulate Daily Run', 2200);
+        }
+      }, 700);
+    }
+
+    const dashObs = new IntersectionObserver(e => {
+      if (e[0].isIntersecting) { animateDashboard(); dashObs.disconnect(); }
+    }, { threshold: 0.25 });
+    const aiSec = document.getElementById('ai-tools');
+    if (aiSec) dashObs.observe(aiSec);
+  </script>
+</body>
+</html>
